@@ -1,37 +1,19 @@
-
-// NOTE: If you run this file locally
-// You will not get a server status
-// You can comment out lines 9 and 26 to make it work locally
-
-var xhr = new XMLHttpRequest();                 // Create XMLHttpRequest object
-
-xhr.onload = function() {                       // When readystate changes
-  // The following conditional check will not work locally - only on a server
-  //if(xhr.status === 200) {                      // If server status was ok
-    responseObject = JSON.parse(xhr.responseText);
-
-    // BUILD UP STRING WITH NEW CONTENT (could also use DOM manipulation)
-    var newContent = '';
-    for (var i = 0; i < responseObject.events.length; i++) { // Loop through object
-      newContent += '<div class="event">';
-      newContent += '<img src="' + responseObject.events[i].map + '" ';
-      newContent += 'alt="' + responseObject.events[i].location + '" />';
-      newContent += '<p><b>' + responseObject.events[i].location + '</b><br>';
-      newContent += responseObject.events[i].date + '</p>';
-      newContent += '</div>';
-    }
-
-    // Update the page with the new content
-    document.getElementById('content2').innerHTML = newContent;
-
-  //}
-};
-
-xhr.open('GET', 'https://barrycumbie.github.io/cis-376/scripts/dev10-data.json', true);        // Prepare the request
-xhr.send(null);                                 // Send the request
-
-// When working locally in Firefox, you may see an error saying that the JSON is not well-formed.
-// This is because Firefox is not reading the correct MIME type (and it can safely be ignored).
-
-// If you get it on a server, you may need to se the MIME type for JSON on the server (application/JSON)
-
+showEvents({
+    "events": [
+      {
+        "location": "Killen, AL",
+        "date": "Aug 1",
+        "map": "https://www.una.edu/international/why-choose-una/227x150xflorence-alabama.jpg.pagespeed.ic.H_q6lbu4ug.jpg"
+      },
+      {
+        "location": "Sheffield, AL",
+        "date": "Aug 15",
+        "map": "https://cdn.thecrazytourist.com/wp-content/uploads/2019/04/ccimage-3154916511_570cb55ebc_b.jpg"
+      },
+      {
+        "location": "Tuscumbia, AL",
+        "date": "Sep 30",
+        "map": "https://cdn.thecrazytourist.com/wp-content/uploads/2019/04/ccimage-shutterstock_1223937.jpg"
+      }
+    ]
+  });
