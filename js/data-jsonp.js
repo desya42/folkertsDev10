@@ -3,7 +3,7 @@ function showEvents(data) {                           // Callback when JSON load
  
     // BUILD UP STRING WITH NEW CONTENT (could also use DOM manipulation)
     for (var i = 0; i < data.events.length; i++) {    // Loop through object
-      newContent += '<div class="events">';
+      newContent += '<div class="event">';
       newContent += '<img src="' + data.events[i].map + '" ';
       newContent += 'alt="' + data.events[i].location + '" ';
       newContent += 'height = "300" width = "300" '; + data.events[i].location + '" />';
