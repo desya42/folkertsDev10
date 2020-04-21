@@ -69,6 +69,7 @@ a {text-decoration: none; color: #000;}
 
 .event p {border-right: 1px solid #999; }
 #content .event:last-child p {border-right: none;}
+#content2 .event:last-child p {border-right: none;}
 
 .third p {
   padding: 0 20px 0 20px;
